@@ -26,7 +26,7 @@ export const PRODUCTS: ProductItem[] = [
     description: 'Premium Basmati & Non-Basmati rice for international export markets.',
     specifications: ['Export Quality Grade', 'Bulk Packaging (25kg/50kg)', 'Phytosanitary Certified'],
     icon: 'Wheat',
-    image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=800'
+    image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=85&w=800'
   },
   {
     id: 'agri-spices',
@@ -36,7 +36,7 @@ export const PRODUCTS: ProductItem[] = [
     description: 'Authentic Indian whole and ground spices including turmeric, chilli & cumin.',
     specifications: ['Pure & Aromatic', 'APEDA & FSSAI Certified', 'Custom Packing Available'],
     icon: 'Flame',
-    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=800'
+    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=85&w=800'
   },
   {
     id: 'agri-veg',
@@ -46,7 +46,7 @@ export const PRODUCTS: ProductItem[] = [
     description: 'Hygienically dehydrated onion, garlic & ginger flakes and powders.',
     specifications: ['Low Moisture (<6%)', 'Extended Shelf Life', 'Zero Preservatives'],
     icon: 'Leaf',
-    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&q=80&w=800'
+    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&q=85&w=800'
   },
 
   // Electrical Products
@@ -58,7 +58,7 @@ export const PRODUCTS: ProductItem[] = [
     description: 'Industrial cables, transformers, and electrical distribution components.',
     specifications: ['IEC Certified', 'Heavy Duty Insulation', 'Industrial Standard'],
     icon: 'Zap',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800'
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=85&w=800'
   },
   {
     id: 'elec-switchgear',
@@ -68,7 +68,7 @@ export const PRODUCTS: ProductItem[] = [
     description: 'Modern electrical switchgear panels and power distribution equipment.',
     specifications: ['Up to 33kV Rating', 'IP55/IP65 Enclosures', 'Full Safety Tested'],
     icon: 'Cpu',
-    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=800'
+    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=85&w=800'
   },
 
   // Industrial Products
@@ -80,6 +80,6 @@ export const PRODUCTS: ProductItem[] = [
     description: 'Precision cold-rolled, hot-rolled, and stainless steel sheets & coils.',
     specifications: ['SS 304 / 316L / GI', 'Precision Thickness', 'Mill Test Certified'],
     icon: 'Layers',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800'
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=85&w=800'
   }
 ];

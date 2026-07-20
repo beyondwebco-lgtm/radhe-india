@@ -22,7 +22,6 @@
     backface-visibility: hidden;
   }
 
-  /* GPU Hardware Acceleration for smooth 60 FPS scrolling */
   * {
     -webkit-tap-highlight-color: transparent;
   }
@@ -35,25 +34,33 @@
     backface-visibility: hidden;
   }
 
+  .text-ocean-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-ocean-400 via-teal-400 to-ocean-500;
+  }
+
   .text-gold-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500;
   }
 
   .glass-card {
-    @apply bg-navy-900/90 backdrop-blur-md border border-slate-800 transition-all duration-200;
+    @apply bg-navy-900/90 backdrop-blur-md border border-navy-800 transition-all duration-200;
     transform: translateZ(0);
   }
 
   .glass-panel {
-    @apply bg-navy-900/90 backdrop-blur-md border border-slate-800 transition-all duration-200;
+    @apply bg-navy-900/90 backdrop-blur-md border border-navy-800 transition-all duration-200;
     transform: translateZ(0);
+  }
+
+  .btn-ocean {
+    @apply bg-gradient-to-r from-ocean-600 via-teal-500 to-ocean-500 hover:from-ocean-500 hover:to-teal-400 text-white font-bold rounded-xl transition-all shadow-md active:scale-95;
   }
 
   .btn-gold {
     @apply bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-navy-950 font-bold rounded-xl transition-all shadow-md active:scale-95;
   }
 
-  .btn-outline-gold {
-    @apply border border-gold-500/40 text-gold-300 hover:bg-gold-500/10 rounded-xl transition-all active:scale-95;
+  .btn-outline-ocean {
+    @apply border border-ocean-500/40 text-ocean-400 hover:bg-ocean-500/10 rounded-xl transition-all active:scale-95;
   }
 }

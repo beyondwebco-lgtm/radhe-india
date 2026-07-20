@@ -19,7 +19,7 @@ export default function WhyChooseUs() {
     { title: "Fast Delivery", desc: "Optimized shipping routes from Visakhapatnam port.", icon: Zap },
     { title: "Global Network", desc: "Active trade presence across Asia, UAE, Europe, and Africa.", icon: Globe2 },
     { title: "Professional Team", desc: "Experienced trade consultants and export managers.", icon: Users },
-    { title: "Women-Led Enterprise", desc: "Empowered leadership driving high integrity and precision.", icon: HeartHandshake },
+    { title: "Empowered Leadership", desc: "Visionary management driving integrity and precision.", icon: HeartHandshake },
     { title: "Customer Satisfaction", desc: "Dedicated B2B account support and reliable fulfillment.", icon: Smile },
   ];
 
@@ -29,11 +29,11 @@ export default function WhyChooseUs() {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <span className="text-xs font-semibold uppercase tracking-wider text-gold-400 block mb-1">
+          <span className="text-xs font-semibold uppercase tracking-wider text-ocean-400 block mb-1">
             The Radhe Advantage
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Why Choose <span className="text-gold-gradient">Radhe India Enterprises</span>
+            Why Choose <span className="text-ocean-gradient">Radhe India Enterprises</span>
           </h2>
         </div>
 
@@ -44,14 +44,14 @@ export default function WhyChooseUs() {
             return (
               <div
                 key={idx}
-                className="glass-card p-4 rounded-2xl flex flex-col justify-between hover:-translate-y-1 transition-all bg-navy-900/90"
+                className="glass-card p-4 rounded-2xl flex flex-col justify-between hover:-translate-y-1 transition-all bg-navy-900/90 border-ocean-500/20"
               >
                 <div className="space-y-2">
-                  <div className="p-2 w-fit rounded-xl bg-gold-500/10 text-gold-400 border border-gold-500/20">
+                  <div className="p-2 w-fit rounded-xl bg-ocean-500/10 text-ocean-400 border border-ocean-500/20">
                     <IconComp className="w-5 h-5" />
                   </div>
                   <h3 className="text-sm font-bold text-white">{item.title}</h3>
-                  <p className="text-xs text-slate-400 leading-relaxed">{item.desc}</p>
+                  <p className="text-xs text-slate-300 leading-relaxed font-normal">{item.desc}</p>
                 </div>
               </div>
             );

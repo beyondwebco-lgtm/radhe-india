@@ -74,8 +74,9 @@ export default function PrivacyPolicyPage() {
             </p>
             <div className="p-4 rounded-xl bg-navy-900 border border-slate-800 text-xs space-y-1">
               <p className="text-white font-semibold">{COMPANY_INFO.name}</p>
-              <p>{COMPANY_INFO.address.fullAddress}</p>
-              <p>Email: <a href={`mailto:${COMPANY_INFO.email}`} className="text-gold-400">{COMPANY_INFO.email}</a></p>
+              <p>{COMPANY_INFO.address.line1}, {COMPANY_INFO.address.line2}</p>
+              <p>{COMPANY_INFO.address.city}, {COMPANY_INFO.address.state} - {COMPANY_INFO.address.pincode}, {COMPANY_INFO.address.country}</p>
+              <p>Email: <a href={`mailto:${COMPANY_INFO.email}`} className="text-ocean-400">{COMPANY_INFO.email}</a></p>
             </div>
           </section>
         </div>
