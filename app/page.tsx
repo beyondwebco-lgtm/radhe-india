@@ -1,8 +1,8 @@
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
-import WhyChooseUs from "@/components/WhyChooseUs";
 import ProductsSection from "@/components/ProductsSection";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
@@ -11,8 +11,9 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <ServicesSection />
-      <WhyChooseUs />
+      {/* Products followed immediately by The Radhe Advantage per client requirement */}
       <ProductsSection />
+      <WhyChooseUs />
       <ContactSection />
     </>
   );
