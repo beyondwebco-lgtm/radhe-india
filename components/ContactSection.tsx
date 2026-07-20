@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MapPin, Phone, Mail, Globe, Building2, MessageCircle, ExternalLink, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Globe, Building2, MessageCircle, ExternalLink } from "lucide-react";
 import { COMPANY_INFO } from "@/data/companyInfo";
 
 export default function ContactSection() {
@@ -75,7 +75,7 @@ ${formData.message.trim()}`;
           </p>
         </div>
 
-        {/* Contact Details & Restored Inline Form Grid */}
+        {/* Contact Details & Inline Form Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Office Details */}
@@ -132,7 +132,7 @@ ${formData.message.trim()}`;
             </div>
           </div>
 
-          {/* Right Column: Restored Inline Enquiry Form */}
+          {/* Right Column: Inline Enquiry Form */}
           <div className="lg:col-span-7">
             <div className="glass-panel p-5 sm:p-7 rounded-2xl bg-navy-900/90 border border-ocean-500/30 shadow-xl">
               <h3 className="text-lg font-bold text-white mb-1">Send Export Inquiry</h3>
