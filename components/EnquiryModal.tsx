@@ -30,15 +30,25 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct = "" }: E
     }
   }, [initialProduct]);
 
-  // ESC Key listener
+  // Lock background scroll when modal is open + ESC key listener
   useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
         onClose();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
@@ -95,19 +105,20 @@ Sent from the Radhe India Enterprises website.`;
 
   return (
     <AnimatePresence>
+      {/* Viewport-fixed Overlay with Background Blur */}
       <div
         onClick={handleBackdropClick}
-        className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-navy-950/85 backdrop-blur-md overflow-y-auto"
+        className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 bg-navy-950/85 backdrop-blur-md overflow-hidden"
       >
         <motion.div
           ref={modalRef}
-          initial={{ opacity: 0, y: 30, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 30, scale: 0.98 }}
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.96 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
-          className="relative w-full max-w-2xl bg-navy-900 border border-ocean-500/40 rounded-2xl sm:rounded-3xl shadow-2xl p-4 sm:p-7 text-white my-auto max-h-[90vh] overflow-y-auto"
+          className="relative w-full max-w-xl bg-navy-900 border border-ocean-500/40 rounded-2xl sm:rounded-3xl shadow-2xl p-4 sm:p-6 text-white max-h-[90vh] overflow-y-auto my-auto"
         >
-          {/* Compact Close Button */}
+          {/* Close Button */}
           <button
             onClick={onClose}
             className="absolute top-3.5 right-3.5 p-1.5 text-slate-400 hover:text-white rounded-full bg-navy-950 border border-slate-800 transition-colors"
@@ -131,7 +142,7 @@ Sent from the Radhe India Enterprises website.`;
             </h2>
           </div>
 
-          {/* Compact Mobile-Optimized Form */}
+          {/* Compact Viewport-Centered Form */}
           <form onSubmit={handleSubmit} className="space-y-2.5 text-xs">
             {/* Auto-filled Product Interest Field */}
             <div>
