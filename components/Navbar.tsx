@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, Menu, X, ArrowRight, MessageCircle } from "lucide-react";
+import { Phone, Mail, Menu, X, MessageCircle } from "lucide-react";
 import { COMPANY_INFO } from "@/data/companyInfo";
 
 export default function Navbar() {
@@ -82,8 +82,8 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-6">
+          {/* Clean Navigation Links */}
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -94,26 +94,6 @@ export default function Navbar() {
               </a>
             ))}
           </nav>
-
-          {/* Action CTAs */}
-          <div className="hidden sm:flex items-center gap-3">
-            <a
-              href={COMPANY_INFO.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center gap-1.5 shadow-md transition-colors"
-            >
-              <MessageCircle className="w-4 h-4" />
-              <span>WhatsApp Us</span>
-            </a>
-            <Link
-              href="/request-quote"
-              className="btn-ocean px-5 py-2 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5"
-            >
-              <span>Request Quote</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
 
           {/* Mobile Toggle */}
           <button
@@ -140,27 +120,6 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
-            
-            <div className="pt-2 border-t border-slate-800 space-y-2">
-              <a
-                href={COMPANY_INFO.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full py-2.5 text-center text-xs font-bold rounded-full bg-emerald-600 text-white flex items-center justify-center gap-2"
-              >
-                <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp Us (+91 9494321980)</span>
-              </a>
-              <Link
-                href="/request-quote"
-                onClick={() => setMobileMenuOpen(false)}
-                className="btn-ocean w-full py-2.5 text-center text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2"
-              >
-                <span>Request Quote</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
           </div>
         </div>
       )}
