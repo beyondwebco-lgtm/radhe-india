@@ -1,218 +1,141 @@
 "use client";
 
 import { useState } from "react";
-import { MapPin, Phone, Mail, Globe, Send, Building2, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Globe, MessageCircle, ExternalLink, Send } from "lucide-react";
 import { COMPANY_INFO } from "@/data/companyInfo";
+import EnquiryModal from "@/components/EnquiryModal";
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "", company: "", email: "", phone: "", country: "", message: ""
-  });
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!formData.name.trim() || !formData.company.trim() || !formData.email.trim() || !formData.country.trim() || !formData.message.trim()) {
-      alert("Please fill in all required fields.");
-      return;
-    }
-
-    const rawMessage = `*New Export Inquiry*
-
-👤 Name:
-${formData.name.trim()}
-
-🏢 Company:
-${formData.company.trim()}
-
-📧 Email:
-${formData.email.trim()}
-
-📱 Phone / WhatsApp:
-${formData.phone.trim() || "N/A"}
-
-🌍 Country:
-${formData.country.trim()}
-
-📝 Message:
-${formData.message.trim()}
-
-Sent from the Radhe India Enterprises website.`;
-
-    const encodedMessage = encodeURIComponent(rawMessage);
-    const whatsappUrl = `https://wa.me/919494321980?text=${encodedMessage}`;
-
-    window.open(whatsappUrl, "_blank");
-  };
+  const mapsDirectUrl = `https://maps.google.com/?q=${encodeURIComponent(
+    "Orange Business Centre, Plot No.21, Beach Road, Kirlampudi Layout, Visakhapatnam, Andhra Pradesh 530017"
+  )}`;
 
   return (
-    <section id="contact" className="relative pt-6 pb-12 sm:pt-8 sm:pb-16 bg-navy-900 overflow-hidden scroll-mt-16">
-      {/* Background Visual Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1526470608268-f674ce90ebd4?auto=format&fit=crop&q=85&w=1920')`
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900/95 to-navy-950" />
+    <>
+      <section id="contact" className="relative py-14 sm:py-16 bg-navy-900 overflow-hidden scroll-mt-16">
+        {/* Background Visual Overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1526470608268-f674ce90ebd4?auto=format&fit=crop&q=85&w=1920')`
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900/95 to-navy-950" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-6">
-          <span className="text-xs font-semibold uppercase tracking-wider text-ocean-400 block mb-1">
-            Direct Trade Contact
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Contact <span className="text-ocean-gradient">Radhe India Enterprises</span>
-          </h2>
-        </div>
-
-        {/* Form & Contact Details Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          {/* Left Column: Office Details & WhatsApp */}
-          <div className="lg:col-span-5 space-y-4">
-            <div className="glass-card p-5 rounded-2xl space-y-3 bg-navy-900/90 border border-ocean-500/20">
-              <div className="flex items-center gap-3 pb-3 border-b border-slate-800">
-                <Building2 className="w-5 h-5 text-ocean-400 shrink-0" />
-                <div>
-                  <h3 className="font-bold text-white text-sm">{COMPANY_INFO.name}</h3>
-                  <p className="text-[11px] text-ocean-300 font-medium">{COMPANY_INFO.tagline}</p>
-                </div>
-              </div>
+          {/* Section Header */}
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="text-xs font-semibold uppercase tracking-wider text-ocean-400 block mb-1">
+              Direct Trade Contact
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+              Contact <span className="text-ocean-gradient">Radhe India Enterprises</span>
+            </h2>
+            <p className="text-xs text-slate-300 mt-2 max-w-lg mx-auto">
+              Our trade team handles global inquiries for agricultural products, electrical equipment, and industrial supplies.
+            </p>
+          </div>
 
-              <div className="space-y-2 text-xs text-slate-300">
-                <div className="flex items-start gap-2.5">
-                  <MapPin className="w-4 h-4 text-ocean-400 shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-white block font-semibold">Address:</strong>
-                    <p>2nd Floor, Orange Business Centre, Plot No.21, Beach Road</p>
-                    <p>Visakhapatnam, Andhra Pradesh - 530017, India</p>
+          {/* Clean Contact Details & Modal Trigger Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto">
+            
+            {/* Left Column: Office Details */}
+            <div className="lg:col-span-6 space-y-4">
+              <div className="glass-card p-6 rounded-2xl space-y-4 bg-navy-900/95 border border-ocean-500/30 shadow-xl">
+                <div className="pb-3 border-b border-slate-800">
+                  <h3 className="font-bold text-white text-base">{COMPANY_INFO.name}</h3>
+                  <p className="text-xs text-ocean-300 font-medium">{COMPANY_INFO.tagline}</p>
+                </div>
+
+                <div className="space-y-3 text-xs text-slate-200">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-4 h-4 text-ocean-400 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-white block font-semibold">Corporate Address:</strong>
+                      <p>2nd Floor, Orange Business Centre, Plot No.21, Beach Road</p>
+                      <p>Kirlampudi Layout, Visakhapatnam, AP - 530017, India</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 pt-1">
+                    <Globe className="w-4 h-4 text-ocean-400 shrink-0" />
+                    <a href={COMPANY_INFO.website} target="_blank" rel="noopener noreferrer" className="text-ocean-300 hover:underline">
+                      {COMPANY_INFO.website}
+                    </a>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <Mail className="w-4 h-4 text-ocean-400 shrink-0" />
+                    <span>{COMPANY_INFO.email}</span>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <Phone className="w-4 h-4 text-ocean-400 shrink-0" />
+                    <span>{COMPANY_INFO.phone}</span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2.5 pt-1">
-                  <Globe className="w-4 h-4 text-ocean-400 shrink-0" />
-                  <a href={COMPANY_INFO.website} target="_blank" rel="noopener noreferrer" className="text-ocean-300 hover:underline">
-                    {COMPANY_INFO.website}
+                {/* View on Google Maps Button */}
+                <div className="pt-2">
+                  <a
+                    href={mapsDirectUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-2.5 px-4 rounded-xl bg-navy-950 hover:bg-slate-900 border border-slate-700 text-slate-200 text-xs font-semibold flex items-center justify-center gap-2 transition-colors"
+                  >
+                    <span>View Location on Google Maps</span>
+                    <ExternalLink className="w-3.5 h-3.5 text-ocean-400" />
                   </a>
                 </div>
-
-                <div className="flex items-center gap-2.5">
-                  <Mail className="w-4 h-4 text-ocean-400 shrink-0" />
-                  <span>{COMPANY_INFO.email}</span>
-                </div>
-
-                <div className="flex items-center gap-2.5">
-                  <Phone className="w-4 h-4 text-ocean-400 shrink-0" />
-                  <span>{COMPANY_INFO.phone}</span>
-                </div>
-
-                {/* Direct WhatsApp Callout */}
-                <a
-                  href={COMPANY_INFO.whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2.5 p-3 rounded-xl bg-emerald-950/90 border border-emerald-500/40 text-emerald-300 text-xs font-semibold flex items-center justify-between hover:bg-emerald-900/90 transition-colors"
-                >
-                  <div className="flex items-center gap-2">
-                    <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>WhatsApp Inquiry (+91 9494321980)</span>
-                  </div>
-                  <span className="text-[10px] uppercase font-bold bg-emerald-500 text-navy-950 px-2 py-0.5 rounded">Chat</span>
-                </a>
               </div>
             </div>
 
-            {/* Embedded Google Map */}
-            <div className="rounded-2xl overflow-hidden border border-slate-800 h-44 bg-navy-950">
-              <iframe
-                title="Radhe India Enterprises Location Map"
-                src={COMPANY_INFO.mapEmbedUrl}
-                width="100%"
-                height="100%"
-                style={{ border: 0, filter: "grayscale(0.5) opacity(0.9)" }}
-                allowFullScreen
-                loading="lazy"
-              />
+            {/* Right Column: Instant Modal Trigger Box */}
+            <div className="lg:col-span-6">
+              <div className="glass-panel p-6 sm:p-8 rounded-2xl bg-navy-900/95 border border-ocean-500/30 text-center space-y-5 shadow-xl">
+                <div className="p-3.5 w-14 h-14 rounded-2xl bg-ocean-500/10 text-ocean-400 border border-ocean-500/30 mx-auto flex items-center justify-center">
+                  <Send className="w-6 h-6" />
+                </div>
+
+                <div className="space-y-1.5">
+                  <h3 className="text-lg font-bold text-white">Need an Export Quotation?</h3>
+                  <p className="text-xs text-slate-300 leading-relaxed max-w-sm mx-auto">
+                    Click below to open our export inquiry modal and receive a custom quotation directly on WhatsApp.
+                  </p>
+                </div>
+
+                <div className="pt-2 space-y-3">
+                  <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="btn-ocean w-full py-3 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2"
+                  >
+                    <Send className="w-4 h-4" />
+                    <span>Open Export Inquiry Popup</span>
+                  </button>
+
+                  <a
+                    href={COMPANY_INFO.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 text-xs font-bold rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center gap-2 transition-colors"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>Direct WhatsApp Chat (+91 9494321980)</span>
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
 
-          {/* Right Column: Instant WhatsApp Inquiry Form */}
-          <div className="lg:col-span-7">
-            <div className="glass-panel p-5 sm:p-7 rounded-2xl bg-navy-900/90 border border-ocean-500/20">
-              <h3 className="text-base font-bold text-white mb-1">Send Export Inquiry</h3>
-              <p className="text-xs text-slate-300 mb-4">Clicking submit will open WhatsApp directly with your pre-filled details.</p>
-
-              <form onSubmit={handleSubmit} className="space-y-3">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-[11px] font-semibold text-slate-300 mb-1">Full Name *</label>
-                    <input
-                      type="text" required placeholder="Full Name"
-                      value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3 py-2 text-xs rounded-xl bg-navy-950 border border-slate-700 text-white focus:outline-none focus:border-ocean-400"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[11px] font-semibold text-slate-300 mb-1">Company Name *</label>
-                    <input
-                      type="text" required placeholder="Company Name"
-                      value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full px-3 py-2 text-xs rounded-xl bg-navy-950 border border-slate-700 text-white focus:outline-none focus:border-ocean-400"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-[11px] font-semibold text-slate-300 mb-1">Business Email *</label>
-                    <input
-                      type="email" required placeholder="email@company.com"
-                      value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-3 py-2 text-xs rounded-xl bg-navy-950 border border-slate-700 text-white focus:outline-none focus:border-ocean-400"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[11px] font-semibold text-slate-300 mb-1">Phone / WhatsApp</label>
-                    <input
-                      type="tel" placeholder="+91 9494321980"
-                      value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-3 py-2 text-xs rounded-xl bg-navy-950 border border-slate-700 text-white focus:outline-none focus:border-ocean-400"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-[11px] font-semibold text-slate-300 mb-1">Country of Import *</label>
-                  <input
-                    type="text" required placeholder="Destination Country"
-                    value={formData.country} onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                    className="w-full px-3 py-2 text-xs rounded-xl bg-navy-950 border border-slate-700 text-white focus:outline-none focus:border-ocean-400"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[11px] font-semibold text-slate-300 mb-1">Message *</label>
-                  <textarea
-                    rows={3} required placeholder="Describe product details and estimated quantity needed..."
-                    value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-3 py-2 text-xs rounded-xl bg-navy-950 border border-slate-700 text-white focus:outline-none focus:border-ocean-400 resize-none"
-                  />
-                </div>
-
-                <button type="submit" className="btn-ocean w-full py-2.5 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2">
-                  <Send className="w-4 h-4" />
-                  <span>Submit Inquiry via WhatsApp</span>
-                </button>
-              </form>
-            </div>
           </div>
 
         </div>
+      </section>
 
-      </div>
-    </section>
+      {/* GoDaddy-style Popup Enquiry Modal */}
+      <EnquiryModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </>
   );
 }

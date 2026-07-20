@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { X, Send, MessageCircle } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { X, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface EnquiryModalProps {
@@ -21,13 +21,33 @@ export default function EnquiryModal({ isOpen, onClose, initialProduct = "" }: E
     message: "",
   });
 
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  // Sync initial product parameter
   useEffect(() => {
     if (initialProduct) {
       setFormData((prev) => ({ ...prev, product: initialProduct }));
     }
   }, [initialProduct]);
 
+  // ESC Key & Click Outside Handlers
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen) {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
+
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+      onClose();
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,15 +94,19 @@ Sent from the Radhe India Enterprises website.`;
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-navy-950/80 backdrop-blur-md overflow-y-auto">
+      <div
+        onClick={handleBackdropClick}
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy-950/85 backdrop-blur-md overflow-y-auto"
+      >
         <motion.div
+          ref={modalRef}
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.2 }}
-          className="relative w-full max-w-xl bg-navy-900 border border-ocean-500/30 rounded-2xl shadow-2xl p-5 sm:p-7 text-white my-auto max-h-[90vh] overflow-y-auto"
+          className="relative w-full max-w-lg bg-navy-900 border border-ocean-500/30 rounded-2xl shadow-2xl p-6 text-white my-auto max-h-[92vh] overflow-y-auto"
         >
-          {/* Close Button */}
+          {/* Close X Button */}
           <button
             onClick={onClose}
             className="absolute top-4 right-4 p-1.5 text-slate-400 hover:text-white rounded-full bg-navy-950 border border-slate-800 transition-colors"
@@ -97,21 +121,28 @@ Sent from the Radhe India Enterprises website.`;
               Direct Export Quotation
             </span>
             <h3 className="text-xl font-bold text-white tracking-tight">
-              Request <span className="text-ocean-gradient">Product Quote</span>
+              {formData.product ? (
+                <>Enquire for <span className="text-ocean-gradient">{formData.product}</span></>
+              ) : (
+                <>Export <span className="text-ocean-gradient">Inquiry Modal</span></>
+              )}
             </h3>
           </div>
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-3 text-xs">
-            {/* Auto-prefilled Product Interest Field */}
+            {/* Auto-filled Product Interest Field */}
             <div>
               <label className="block text-slate-300 font-semibold mb-1">Product Interested In</label>
               <input
                 type="text"
-                placeholder="e.g. Rice, Spices, Switchgear, Metal Sheets"
+                readOnly={!!initialProduct}
+                placeholder="Product Name"
                 value={formData.product}
                 onChange={(e) => setFormData({ ...formData, product: e.target.value })}
-                className="w-full px-3 py-2 text-xs rounded-xl bg-navy-950 border border-ocean-500/40 text-gold-300 font-semibold focus:outline-none focus:border-ocean-400"
+                className={`w-full px-3 py-2 text-xs rounded-xl bg-navy-950 border text-ocean-300 font-semibold focus:outline-none ${
+                  initialProduct ? 'border-ocean-500/50 cursor-not-allowed bg-navy-950/80' : 'border-slate-700 focus:border-ocean-400'
+                }`}
               />
             </div>
 
@@ -181,7 +212,7 @@ Sent from the Radhe India Enterprises website.`;
               <textarea
                 rows={3}
                 required
-                placeholder="Describe order quantity, specification, or port requirements..."
+                placeholder="Describe order quantity, specs, or port requirements..."
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 className="w-full px-3 py-2 text-xs rounded-xl bg-navy-950 border border-slate-700 text-white focus:outline-none focus:border-ocean-400 resize-none"
