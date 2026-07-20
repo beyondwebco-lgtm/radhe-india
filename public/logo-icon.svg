@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="iconRibbonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF5722" />
+      <stop offset="30%" stop-color="#FF9800" />
+      <stop offset="70%" stop-color="#FFB300" />
+      <stop offset="100%" stop-color="#E65100" />
+    </linearGradient>
+    <linearGradient id="iconRibbonDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E65100" />
+      <stop offset="100%" stop-color="#BF360C" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(80, 80) scale(1.1)">
+    <!-- Top Arrow Peak -->
+    <path d="M 0 -62 L 24 -36 L 8 -40 L 8 -28 L -8 -28 L -8 -40 L -24 -36 Z" fill="url(#iconRibbonGrad)" />
+    
+    <!-- Top Spiral Loop -->
+    <path d="M -45 -20 C -20 -33 20 -33 45 -20 C 55 -14 55 -3 42 4 C 20 -6 -20 -6 -42 4 C -55 -3 -55 -14 -45 -20 Z" fill="url(#iconRibbonGrad)" />
+    <path d="M -42 4 C -20 14 20 14 42 4 C 48 10 45 18 35 24 C 15 14 -15 14 -35 24 C -48 18 -55 10 -42 4 Z" fill="url(#iconRibbonDark)" />
+    
+    <!-- Middle Spiral Loop -->
+    <path d="M -55 14 C -25 0 25 0 55 14 C 65 20 62 30 50 36 C 25 22 -25 22 -50 36 C -62 30 -65 20 -55 14 Z" fill="url(#iconRibbonGrad)" />
+    <path d="M -50 36 C -25 48 25 48 50 36 C 55 42 48 50 35 54 C 15 44 -15 44 -35 54 C -48 50 -55 42 -50 36 Z" fill="url(#iconRibbonDark)" />
+    
+    <!-- Bottom Spiral Curve -->
+    <path d="M -45 44 C -20 32 20 32 45 44 C 52 50 42 58 25 62 C 10 54 -10 54 -25 62 C -42 58 -52 50 -45 44 Z" fill="url(#iconRibbonGrad)" />
+  </g>
+</svg>
