@@ -105,18 +105,18 @@ Sent from the Radhe India Enterprises website.`;
 
   return (
     <AnimatePresence>
-      {/* Viewport-fixed Overlay with Background Blur */}
+      {/* Viewport-fixed Overlay with Top Padding Safety Buffer */}
       <div
         onClick={handleBackdropClick}
-        className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 bg-navy-950/85 backdrop-blur-md overflow-hidden"
+        className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-5 bg-navy-950/85 backdrop-blur-md overflow-y-auto"
       >
         <motion.div
           ref={modalRef}
-          initial={{ opacity: 0, scale: 0.96 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.96 }}
+          exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
-          className="relative w-full max-w-xl bg-navy-900 border border-ocean-500/40 rounded-2xl sm:rounded-3xl shadow-2xl p-4 sm:p-6 text-white max-h-[90vh] overflow-y-auto my-auto"
+          className="relative w-full max-w-lg bg-navy-900 border border-ocean-500/40 rounded-2xl sm:rounded-3xl shadow-2xl p-4 sm:p-6 text-white max-h-[85vh] overflow-y-auto my-auto mt-14 sm:mt-auto"
         >
           {/* Close Button */}
           <button
@@ -128,12 +128,12 @@ Sent from the Radhe India Enterprises website.`;
           </button>
 
           {/* Modal Header */}
-          <div className="mb-3 sm:mb-4 pb-2.5 border-b border-slate-800 pr-8">
+          <div className="mb-3 sm:mb-4 pb-2 border-b border-slate-800 pr-8">
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-ocean-500/10 border border-ocean-500/30 text-ocean-300 text-[10px] font-semibold uppercase tracking-wider mb-1">
               <CheckCircle2 className="w-3 h-3 text-ocean-400" />
               <span>Export Quotation</span>
             </div>
-            <h2 className="text-lg sm:text-2xl font-extrabold text-white tracking-tight leading-tight">
+            <h2 className="text-lg sm:text-xl font-extrabold text-white tracking-tight leading-tight">
               {formData.product ? (
                 <>Quotation for <span className="text-ocean-gradient">{formData.product}</span></>
               ) : (
@@ -142,7 +142,7 @@ Sent from the Radhe India Enterprises website.`;
             </h2>
           </div>
 
-          {/* Compact Viewport-Centered Form */}
+          {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-2.5 text-xs">
             {/* Auto-filled Product Interest Field */}
             <div>
