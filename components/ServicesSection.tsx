@@ -22,35 +22,35 @@ export default function ServicesSection() {
           </h2>
         </div>
 
-        {/* 5 Cards with Brightened Background Images & Ocean Gradient Highlights */}
+        {/* 5 Service Cards with Brightened High-Clarity Background Imagery */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {SERVICES.map((service) => {
             const IconComp = serviceIconMap[service.icon] || Globe2;
             return (
               <div
                 key={service.id}
-                className="relative rounded-2xl overflow-hidden border border-ocean-500/30 group hover:border-ocean-400 transition-all shadow-lg flex flex-col justify-between h-48 p-5 bg-navy-950"
+                className="relative rounded-2xl overflow-hidden border border-ocean-500/30 group hover:border-ocean-400 transition-all shadow-lg flex flex-col justify-between h-52 p-5 bg-navy-950"
               >
-                {/* Brightened Background Image */}
+                {/* Brightened High-Clarity Background Image */}
                 <div 
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat group-hover:scale-105 transition-transform duration-700 z-0 opacity-40"
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat group-hover:scale-105 transition-transform duration-700 z-0 opacity-75"
                   style={{ backgroundImage: `url('${service.image}')` }}
                 />
-                {/* Subtle Dark Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/80 to-navy-950/60 z-0" />
+                {/* Light Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/75 to-navy-950/45 z-0" />
 
                 {/* Content */}
                 <div className="relative z-10 space-y-2">
                   <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-xl bg-ocean-500/20 text-ocean-300 border border-ocean-500/40 backdrop-blur-md shrink-0">
+                    <div className="p-2.5 rounded-xl bg-navy-950/80 text-ocean-300 border border-ocean-500/40 backdrop-blur-md shrink-0">
                       <IconComp className="w-5 h-5" />
                     </div>
-                    <h3 className="text-base font-bold text-white group-hover:text-ocean-300 transition-colors">
+                    <h3 className="text-base font-bold text-white group-hover:text-ocean-300 transition-colors drop-shadow-sm">
                       {service.title}
                     </h3>
                   </div>
 
-                  <p className="text-xs text-slate-200 leading-relaxed pt-1 font-normal">
+                  <p className="text-xs text-slate-100 leading-relaxed pt-1 font-medium drop-shadow-sm">
                     {service.shortDesc}
                   </p>
                 </div>

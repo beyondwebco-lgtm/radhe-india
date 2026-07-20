@@ -27,7 +27,7 @@ export default function ProductsSection() {
 
   return (
     <>
-      <section id="products" className="relative py-12 sm:py-16 bg-navy-950 overflow-hidden">
+      <section id="products" className="relative py-14 sm:py-16 bg-navy-950 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           {/* Section Header */}
@@ -48,7 +48,7 @@ export default function ProductsSection() {
                 onClick={() => setActiveCategory(cat.id)}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-colors border ${
                   activeCategory === cat.id
-                    ? "bg-ocean-500 text-white border-ocean-400 font-bold"
+                    ? "bg-ocean-500 text-white border-ocean-400 font-bold shadow-md"
                     : "bg-navy-900 text-slate-300 border-slate-800 hover:border-slate-700"
                 }`}
               >
@@ -57,7 +57,7 @@ export default function ProductsSection() {
             ))}
           </div>
 
-          {/* Product Cards Grid with Brightened Product Backgrounds */}
+          {/* Product Cards Grid with Brightened, High-Clarity Imagery */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence>
               {filteredProducts.map((product) => {
@@ -70,34 +70,34 @@ export default function ProductsSection() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="relative rounded-2xl overflow-hidden border border-ocean-500/30 group hover:border-ocean-400 transition-all shadow-lg flex flex-col justify-between h-60 p-5 bg-navy-900"
+                    className="relative rounded-2xl overflow-hidden border border-ocean-500/30 group hover:border-ocean-400 transition-all shadow-lg flex flex-col justify-between h-64 p-5 bg-navy-900"
                   >
-                    {/* Brightened Product Background Image */}
+                    {/* Brightened High-Clarity Product Image */}
                     <Image
                       src={product.image}
                       alt={product.name}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700 z-0 opacity-50"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700 z-0 opacity-75"
                       loading="lazy"
                       unoptimized
                     />
                     
-                    {/* Subtle Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/75 to-navy-950/50 z-0" />
+                    {/* Light Gradient Overlay for crisp text clarity */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/70 to-navy-950/40 z-0" />
 
                     {/* Top Header */}
                     <div className="relative z-10 space-y-2">
                       <div className="flex items-center justify-between">
-                        <div className="p-2 rounded-xl bg-ocean-500/20 text-ocean-300 border border-ocean-500/40 backdrop-blur-md">
+                        <div className="p-2 rounded-xl bg-navy-950/80 text-ocean-300 border border-ocean-500/40 backdrop-blur-md">
                           <IconComp className="w-5 h-5" />
                         </div>
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-navy-950/90 text-ocean-300 border border-slate-800">
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-navy-950/90 text-ocean-300 border border-slate-800 backdrop-blur-md">
                           {product.category}
                         </span>
                       </div>
 
-                      <h3 className="text-lg font-bold text-white group-hover:text-ocean-300 transition-colors">
+                      <h3 className="text-xl font-extrabold text-white group-hover:text-ocean-300 transition-colors drop-shadow-sm">
                         {product.name}
                       </h3>
                     </div>
@@ -106,9 +106,9 @@ export default function ProductsSection() {
                     <div className="relative z-10">
                       <button
                         onClick={() => handleEnquire(product.name)}
-                        className="pt-2 border-t border-white/15 w-full flex items-center justify-between text-xs font-semibold text-ocean-400 hover:text-ocean-300 transition-colors"
+                        className="pt-2 border-t border-white/20 w-full flex items-center justify-between text-xs font-bold text-ocean-300 hover:text-white transition-colors"
                       >
-                        <span>Enquire for {product.name}</span>
+                        <span>Request Product Quote</span>
                         <ArrowRight className="w-4 h-4" />
                       </button>
                     </div>
@@ -121,7 +121,7 @@ export default function ProductsSection() {
         </div>
       </section>
 
-      {/* GoDaddy-style Popup Enquiry Modal with Auto-prefilled Product Interest */}
+      {/* Full-Screen Slide-Up Overlay Modal with Auto Product Pre-fill */}
       <EnquiryModal
         isOpen={isEnquiryOpen}
         onClose={() => setIsEnquiryOpen(false)}
