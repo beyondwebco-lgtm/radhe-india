@@ -2,6 +2,8 @@
 
 > **Your Gateway for Global Market**
 
+![Build Status](https://img.shields.io/badge/Vercel-Deploys_Ready-success)
+
 ![Radhe India Enterprises Logo](public/logo.png)
 
 Official Next.js corporate website for **Radhe India Enterprises**, an Indian international trading and manufacturing enterprise established in 2023 by a visionary woman entrepreneur.
