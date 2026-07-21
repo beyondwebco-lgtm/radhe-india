@@ -3,7 +3,7 @@
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, MessageCircle, ShieldCheck, Building2, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, MessageCircle, ShieldCheck } from "lucide-react";
 import { COMPANY_INFO } from "@/data/companyInfo";
 
 function RequestQuoteFormContent() {
@@ -74,33 +74,33 @@ Sent from the Radhe India Enterprises website.`;
       {/* Navigation Back Link */}
       <Link
         href="/"
-        className="inline-flex items-center gap-2 text-xs font-semibold text-ocean-400 hover:text-ocean-300 transition-colors"
+        className="inline-flex items-center gap-2 text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>Back to Main Website</span>
       </Link>
 
       {/* Header */}
-      <div className="space-y-2 border-b border-slate-800 pb-6">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-ocean-500/10 border border-ocean-500/30 text-ocean-300 text-xs font-semibold uppercase tracking-wider">
-          <ShieldCheck className="w-3.5 h-3.5 text-ocean-400" />
+      <div className="space-y-2 border-b border-slate-200 pb-6">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold uppercase tracking-wider">
+          <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
           <span>Official Export Request</span>
         </div>
-        <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
           Request <span className="text-ocean-gradient">Export Quotation</span>
         </h1>
-        <p className="text-xs sm:text-sm text-slate-300">
+        <p className="text-xs sm:text-sm text-slate-600">
           Complete your trade requirements below to connect directly with our international trade desk on WhatsApp.
         </p>
       </div>
 
-      {/* Premium Corporate Form */}
-      <div className="glass-panel p-6 sm:p-8 rounded-3xl bg-navy-900/95 border border-ocean-500/30 shadow-2xl space-y-6">
+      {/* Corporate Form */}
+      <div className="glass-panel p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
         
         <form onSubmit={handleSubmit} className="space-y-4 text-xs sm:text-sm">
           {/* Product Auto-Filled Field */}
           <div>
-            <label className="block text-slate-300 font-semibold mb-1 text-xs">
+            <label className="block text-slate-700 font-semibold mb-1 text-xs">
               Product Interested In
             </label>
             <input
@@ -109,17 +109,17 @@ Sent from the Radhe India Enterprises website.`;
               placeholder="e.g. Rice, Spices, Switchgear, Metal Sheets"
               value={formData.product}
               onChange={(e) => setFormData({ ...formData, product: e.target.value })}
-              className={`w-full px-4 py-3 rounded-xl bg-navy-950 border text-ocean-300 font-semibold focus:outline-none ${
+              className={`w-full px-4 py-3 rounded-xl bg-slate-50 border text-blue-700 font-semibold focus:outline-none ${
                 initialProduct
-                  ? "border-ocean-500/50 cursor-not-allowed bg-navy-950/80"
-                  : "border-slate-700 focus:border-ocean-400"
+                  ? "border-blue-200 cursor-not-allowed bg-slate-100"
+                  : "border-slate-300 focus:border-blue-600"
               }`}
             />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-slate-300 font-semibold mb-1 text-xs">
+              <label className="block text-slate-700 font-semibold mb-1 text-xs">
                 Full Name *
               </label>
               <input
@@ -128,11 +128,11 @@ Sent from the Radhe India Enterprises website.`;
                 placeholder="Your Full Name"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-navy-950 border border-slate-700 text-white focus:outline-none focus:border-ocean-400"
+                className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 focus:outline-none focus:border-blue-600"
               />
             </div>
             <div>
-              <label className="block text-slate-300 font-semibold mb-1 text-xs">
+              <label className="block text-slate-700 font-semibold mb-1 text-xs">
                 Company Name *
               </label>
               <input
@@ -141,14 +141,14 @@ Sent from the Radhe India Enterprises website.`;
                 placeholder="Company Name"
                 value={formData.company}
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-navy-950 border border-slate-700 text-white focus:outline-none focus:border-ocean-400"
+                className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 focus:outline-none focus:border-blue-600"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-slate-300 font-semibold mb-1 text-xs">
+              <label className="block text-slate-700 font-semibold mb-1 text-xs">
                 Business Email *
               </label>
               <input
@@ -157,11 +157,11 @@ Sent from the Radhe India Enterprises website.`;
                 placeholder="email@company.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-navy-950 border border-slate-700 text-white focus:outline-none focus:border-ocean-400"
+                className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 focus:outline-none focus:border-blue-600"
               />
             </div>
             <div>
-              <label className="block text-slate-300 font-semibold mb-1 text-xs">
+              <label className="block text-slate-700 font-semibold mb-1 text-xs">
                 Phone / WhatsApp
               </label>
               <input
@@ -169,13 +169,13 @@ Sent from the Radhe India Enterprises website.`;
                 placeholder="+91 9494321980"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-navy-950 border border-slate-700 text-white focus:outline-none focus:border-ocean-400"
+                className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 focus:outline-none focus:border-blue-600"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-slate-300 font-semibold mb-1 text-xs">
+            <label className="block text-slate-700 font-semibold mb-1 text-xs">
               Country of Import *
             </label>
             <input
@@ -184,12 +184,12 @@ Sent from the Radhe India Enterprises website.`;
               placeholder="Destination Country"
               value={formData.country}
               onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl bg-navy-950 border border-slate-700 text-white focus:outline-none focus:border-ocean-400"
+              className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 focus:outline-none focus:border-blue-600"
             />
           </div>
 
           <div>
-            <label className="block text-slate-300 font-semibold mb-1 text-xs">
+            <label className="block text-slate-700 font-semibold mb-1 text-xs">
               Inquiry Message *
             </label>
             <textarea
@@ -198,7 +198,7 @@ Sent from the Radhe India Enterprises website.`;
               placeholder="Describe product details, estimated order quantity, or port delivery specs..."
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl bg-navy-950 border border-slate-700 text-white focus:outline-none focus:border-ocean-400 resize-none"
+              className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 focus:outline-none focus:border-blue-600 resize-none"
             />
           </div>
 
@@ -220,9 +220,9 @@ Sent from the Radhe India Enterprises website.`;
 
 export default function RequestQuotePage() {
   return (
-    <main className="pt-28 pb-20 bg-navy-950 min-h-screen text-slate-100">
+    <main className="pt-28 pb-20 bg-slate-50 min-h-screen text-slate-900">
       <Suspense fallback={
-        <div className="text-center py-20 text-slate-400">Loading Request Form...</div>
+        <div className="text-center py-20 text-slate-500">Loading Request Form...</div>
       }>
         <RequestQuoteFormContent />
       </Suspense>

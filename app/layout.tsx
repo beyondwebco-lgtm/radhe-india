@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${sansFont.variable} ${displayFont.variable}`}>
-      <body className="min-h-screen flex flex-col bg-navy-950 text-slate-100 antialiased selection:bg-gold-500 selection:text-navy-950">
+      <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased selection:bg-blue-500 selection:text-white">
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />

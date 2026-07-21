@@ -19,15 +19,15 @@ export default function ProductsSection() {
   });
 
   return (
-    <section id="products" className="relative py-14 sm:py-16 bg-navy-950 overflow-hidden">
+    <section id="products" className="relative py-14 sm:py-16 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8">
-          <span className="text-xs font-semibold uppercase tracking-wider text-ocean-400 block mb-1">
+          <span className="text-xs font-semibold uppercase tracking-wider text-blue-600 block mb-1">
             B2B Product Portfolio
           </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Export <span className="text-ocean-gradient">Product Lines</span>
           </h2>
         </div>
@@ -40,8 +40,8 @@ export default function ProductsSection() {
               onClick={() => setActiveCategory(cat.id)}
               className={`px-4 py-1.5 rounded-xl text-xs font-semibold transition-colors border ${
                 activeCategory === cat.id
-                  ? "bg-ocean-500 text-white border-ocean-400 font-bold shadow-md"
-                  : "bg-navy-900 text-slate-300 border-slate-800 hover:border-slate-700"
+                  ? "bg-blue-600 text-white border-blue-600 font-bold shadow-md"
+                  : "bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200 hover:border-slate-300"
               }`}
             >
               {cat.name}
@@ -62,10 +62,10 @@ export default function ProductsSection() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.25 }}
-                  className="rounded-2xl overflow-hidden border border-ocean-500/30 group hover:border-ocean-400 transition-all shadow-xl bg-navy-900 flex flex-col justify-between"
+                  className="rounded-2xl overflow-hidden border border-slate-200 group hover:border-blue-300 transition-all shadow-md hover:shadow-xl bg-white flex flex-col justify-between"
                 >
                   {/* Top Hero Image Banner */}
-                  <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-navy-950">
+                  <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-100">
                     <Image
                       src={product.image}
                       alt={product.name}
@@ -76,35 +76,35 @@ export default function ProductsSection() {
                       unoptimized
                     />
                     
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-black/20" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-80" />
 
-                    <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-navy-950/90 text-ocean-300 text-[10px] font-bold border border-ocean-500/30 backdrop-blur-md">
-                      <IconComp className="w-3.5 h-3.5 text-ocean-400" />
+                    <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/90 text-blue-700 text-[10px] font-bold border border-slate-200 backdrop-blur-md shadow-sm">
+                      <IconComp className="w-3.5 h-3.5 text-blue-600" />
                       <span>{product.category}</span>
                     </div>
                   </div>
 
                   {/* Bottom Content Area */}
-                  <div className="p-4 sm:p-5 space-y-3 flex flex-col justify-between flex-1 bg-navy-900">
+                  <div className="p-4 sm:p-5 space-y-3 flex flex-col justify-between flex-1 bg-white">
                     <div>
-                      <h3 className="text-lg font-extrabold text-white group-hover:text-ocean-300 transition-colors">
+                      <h3 className="text-lg font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors">
                         {product.name}
                       </h3>
-                      <p className="text-xs text-slate-300 mt-1 leading-relaxed line-clamp-2">
+                      <p className="text-xs text-slate-600 mt-1 leading-relaxed line-clamp-2">
                         {product.description}
                       </p>
                     </div>
 
                     <div className="flex flex-wrap gap-1.5 pt-1">
                       {product.specifications.slice(0, 2).map((spec, i) => (
-                        <span key={i} className="text-[10px] px-2 py-0.5 rounded bg-navy-950 text-slate-300 border border-slate-800 font-medium">
+                        <span key={i} className="text-[10px] px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 font-medium">
                           {spec}
                         </span>
                       ))}
                     </div>
 
                     {/* Request Quote Direct Link to /request-quote */}
-                    <div className="pt-2 border-t border-slate-800">
+                    <div className="pt-2 border-t border-slate-100">
                       <Link
                         href={`/request-quote?product=${encodeURIComponent(product.name)}`}
                         className="btn-ocean w-full py-2.5 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2"

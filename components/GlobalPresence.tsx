@@ -74,10 +74,7 @@ export default function GlobalPresence() {
   const [selectedRegion, setSelectedRegion] = useState(regions[0]);
 
   return (
-    <section id="global-presence" className="py-24 bg-navy-950 relative overflow-hidden">
-      {/* Glow Effects */}
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gold-500/5 rounded-full blur-[140px] pointer-events-none" />
-
+    <section id="global-presence" className="py-24 bg-slate-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -87,9 +84,9 @@ export default function GlobalPresence() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-300 text-xs font-semibold uppercase tracking-wider mb-4"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-4"
           >
-            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+            <Sparkles className="w-3.5 h-3.5 text-blue-600" />
             <span>International Trade Footprint</span>
           </motion.div>
 
@@ -98,9 +95,9 @@ export default function GlobalPresence() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight"
           >
-            Our Growing <span className="text-gold-gradient">Global Presence</span>
+            Our Growing <span className="text-ocean-gradient">Global Presence</span>
           </motion.h2>
 
           <motion.p
@@ -108,7 +105,7 @@ export default function GlobalPresence() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed"
+            className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed"
           >
             Connecting Indian manufacturing centers to major international trade corridors across 5 continents with reliable port shipping networks.
           </motion.p>
@@ -118,30 +115,29 @@ export default function GlobalPresence() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Left Interactive SVG World Map View */}
-          <div className="lg:col-span-7 rounded-2xl glass-panel p-6 border-gold-500/30 relative overflow-hidden shadow-2xl">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
-              <div className="flex items-center gap-2 text-xs text-slate-300 font-semibold">
-                <Globe2 className="w-4 h-4 text-gold-400" />
+          <div className="lg:col-span-7 rounded-2xl glass-panel p-6 border-slate-200 bg-white relative overflow-hidden shadow-xl">
+            <div className="flex items-center justify-between border-b border-slate-200 pb-4 mb-4">
+              <div className="flex items-center gap-2 text-xs text-slate-800 font-semibold">
+                <Globe2 className="w-4 h-4 text-blue-600" />
                 <span>Interactive Global Trade Routes</span>
               </div>
-              <span className="text-[10px] text-gold-400 bg-gold-500/10 px-2 py-0.5 rounded border border-gold-500/20">
+              <span className="text-[10px] text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
                 Click map pins to explore markets
               </span>
             </div>
 
             {/* Map Graphic Box */}
-            <div className="relative h-80 sm:h-96 w-full rounded-xl bg-navy-950/90 border border-slate-800/80 overflow-hidden flex items-center justify-center bg-dots-pattern">
+            <div className="relative h-80 sm:h-96 w-full rounded-xl bg-slate-100 border border-slate-200 overflow-hidden flex items-center justify-center">
               <svg
                 viewBox="0 0 1000 500"
-                className="w-full h-full object-contain text-slate-700/60"
+                className="w-full h-full object-contain text-slate-300"
                 fill="currentColor"
               >
-                {/* Simplified World Continents Vector Outlines */}
-                <path d="M150,150 Q200,100 300,120 Q350,180 280,240 Q200,260 150,150 Z" opacity="0.3" />
-                <path d="M450,120 Q550,80 620,120 Q600,200 480,180 Z" opacity="0.3" />
-                <path d="M480,220 Q580,200 600,280 Q520,380 480,280 Z" opacity="0.3" />
-                <path d="M630,140 Q800,120 850,220 Q750,300 650,260 Z" opacity="0.3" />
-                <path d="M800,320 Q880,300 900,380 Q820,400 800,320 Z" opacity="0.3" />
+                <path d="M150,150 Q200,100 300,120 Q350,180 280,240 Q200,260 150,150 Z" opacity="0.5" />
+                <path d="M450,120 Q550,80 620,120 Q600,200 480,180 Z" opacity="0.5" />
+                <path d="M480,220 Q580,200 600,280 Q520,380 480,280 Z" opacity="0.5" />
+                <path d="M630,140 Q800,120 850,220 Q750,300 650,260 Z" opacity="0.5" />
+                <path d="M800,320 Q880,300 900,380 Q820,400 800,320 Z" opacity="0.5" />
               </svg>
 
               {/* Hotspot Pins */}
@@ -157,16 +153,16 @@ export default function GlobalPresence() {
                   >
                     <span className="relative flex h-5 w-5 items-center justify-center">
                       <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${
-                        isSelected ? "bg-gold-400 opacity-75" : "bg-emerald-400 opacity-40"
+                        isSelected ? "bg-blue-600 opacity-75" : "bg-emerald-500 opacity-40"
                       }`} />
                       <span className={`relative inline-flex rounded-full h-3 w-3 ${
-                        isSelected ? "bg-gold-400 ring-4 ring-gold-400/30" : "bg-emerald-400 group-hover:bg-gold-300"
+                        isSelected ? "bg-blue-600 ring-4 ring-blue-500/30" : "bg-emerald-500 group-hover:bg-blue-600"
                       }`} />
                     </span>
                     <span className={`absolute top-full left-1/2 -translate-x-1/2 mt-1 px-2 py-0.5 rounded text-[10px] font-bold whitespace-nowrap transition-all ${
                       isSelected 
-                        ? "bg-gold-500 text-navy-950 shadow-md" 
-                        : "bg-navy-950/90 text-slate-300 border border-slate-700 opacity-0 group-hover:opacity-100"
+                        ? "bg-blue-600 text-white shadow-md" 
+                        : "bg-white text-slate-800 border border-slate-200 opacity-0 group-hover:opacity-100 shadow-sm"
                     }`}>
                       {region.name}
                     </span>
@@ -176,13 +172,13 @@ export default function GlobalPresence() {
             </div>
 
             {/* Map Legend */}
-            <div className="mt-4 pt-3 border-t border-slate-800 flex flex-wrap justify-between items-center text-xs text-slate-400">
+            <div className="mt-4 pt-3 border-t border-slate-200 flex flex-wrap justify-between items-center text-xs text-slate-600">
               <span className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-gold-400" />
+                <span className="w-2 h-2 rounded-full bg-blue-600" />
                 <span>Headquarters & Deep Sea Port</span>
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
                 <span>Active International Trade Partners</span>
               </span>
             </div>
@@ -190,7 +186,7 @@ export default function GlobalPresence() {
 
           {/* Right Region Info Cards Stack */}
           <div className="lg:col-span-5 space-y-4">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-gold-400 flex items-center gap-2">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-blue-600 flex items-center gap-2">
               <Navigation className="w-4 h-4" />
               <span>Select Region to View Trade Details</span>
             </h3>
@@ -204,22 +200,22 @@ export default function GlobalPresence() {
                     onClick={() => setSelectedRegion(region)}
                     className={`p-4 rounded-xl border transition-all cursor-pointer ${
                       isSelected
-                        ? "bg-navy-900 border-gold-500/60 shadow-lg"
-                        : "bg-navy-950/60 border-slate-800 hover:border-slate-700 text-slate-400"
+                        ? "bg-white border-blue-500 shadow-md"
+                        : "bg-white/70 border-slate-200 hover:border-slate-300 text-slate-600"
                     }`}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <MapPin className={`w-4 h-4 ${isSelected ? "text-gold-400" : "text-slate-500"}`} />
+                        <MapPin className={`w-4 h-4 ${isSelected ? "text-blue-600" : "text-slate-400"}`} />
                         <div>
-                          <h4 className={`text-sm font-bold ${isSelected ? "text-white" : "text-slate-300"}`}>
+                          <h4 className={`text-sm font-bold ${isSelected ? "text-slate-900" : "text-slate-700"}`}>
                             {region.name}
                           </h4>
-                          <p className="text-[11px] text-slate-400">{region.location}</p>
+                          <p className="text-[11px] text-slate-500">{region.location}</p>
                         </div>
                       </div>
                       <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${
-                        isSelected ? "bg-gold-500/20 text-gold-300 border border-gold-500/40" : "bg-slate-800 text-slate-400"
+                        isSelected ? "bg-blue-50 text-blue-700 border border-blue-200" : "bg-slate-100 text-slate-600"
                       }`}>
                         {region.type}
                       </span>
@@ -232,9 +228,9 @@ export default function GlobalPresence() {
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
                           transition={{ duration: 0.3 }}
-                          className="mt-3 pt-3 border-t border-slate-800 space-y-2 text-xs"
+                          className="mt-3 pt-3 border-t border-slate-200 space-y-2 text-xs"
                         >
-                          <p className="text-slate-300 leading-relaxed">
+                          <p className="text-slate-600 leading-relaxed">
                             {region.details}
                           </p>
 
@@ -242,9 +238,9 @@ export default function GlobalPresence() {
                             {region.products.map((prod, pIdx) => (
                               <span
                                 key={pIdx}
-                                className="px-2 py-0.5 rounded bg-navy-950 text-slate-300 border border-slate-700/80 text-[10px] flex items-center gap-1"
+                                className="px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 text-[10px] flex items-center gap-1"
                               >
-                                <CheckCircle2 className="w-2.5 h-2.5 text-gold-400" />
+                                <CheckCircle2 className="w-2.5 h-2.5 text-blue-600" />
                                 {prod}
                               </span>
                             ))}

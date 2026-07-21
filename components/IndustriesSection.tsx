@@ -81,10 +81,7 @@ export default function IndustriesSection() {
   ];
 
   return (
-    <section id="industries" className="py-24 bg-navy-900/50 relative overflow-hidden">
-      {/* Background Graphic */}
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold-500/5 rounded-full blur-[140px] pointer-events-none" />
-
+    <section id="industries" className="py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -94,9 +91,9 @@ export default function IndustriesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-300 text-xs font-semibold uppercase tracking-wider mb-4"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-4"
           >
-            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+            <Sparkles className="w-3.5 h-3.5 text-blue-600" />
             <span>Target Sectors</span>
           </motion.div>
 
@@ -105,9 +102,9 @@ export default function IndustriesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight"
           >
-            Industries We <span className="text-gold-gradient">Serve Worldwide</span>
+            Industries We <span className="text-ocean-gradient">Serve Worldwide</span>
           </motion.h2>
 
           <motion.p
@@ -115,7 +112,7 @@ export default function IndustriesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed"
+            className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed"
           >
             Delivering customized product specifications, bulk trade packaging, and technical compliance for diverse industry verticals globally.
           </motion.p>
@@ -132,7 +129,7 @@ export default function IndustriesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.04 }}
-                className="group relative h-72 rounded-2xl overflow-hidden border border-gold-500/20 hover:border-gold-400 transition-all duration-500 shadow-xl cursor-pointer"
+                className="group relative h-72 rounded-2xl overflow-hidden border border-slate-200 hover:border-blue-400 transition-all duration-500 shadow-md hover:shadow-xl cursor-pointer"
               >
                 {/* Card Background Image */}
                 <img
@@ -141,23 +138,23 @@ export default function IndustriesSection() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60"
                 />
                 
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/70 to-navy-950/20 group-hover:from-navy-950/95 transition-colors" />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/60 to-slate-900/20 group-hover:from-slate-950/95 transition-colors" />
 
                 {/* Card Content */}
-                <div className="absolute inset-0 p-5 flex flex-col justify-between z-10">
+                <div className="absolute inset-0 p-5 flex flex-col justify-between z-10 text-white">
                   <div className="flex justify-between items-start">
-                    <div className="p-2.5 rounded-xl bg-gold-500/20 backdrop-blur-md border border-gold-500/40 text-gold-300 group-hover:bg-gold-500 group-hover:text-navy-950 transition-colors">
+                    <div className="p-2.5 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 text-white group-hover:bg-blue-600 transition-colors">
                       <IconComp className="w-5 h-5" />
                     </div>
-                    <ArrowUpRight className="w-5 h-5 text-slate-400 group-hover:text-gold-300 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                    <ArrowUpRight className="w-5 h-5 text-slate-300 group-hover:text-blue-300 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
                   </div>
 
                   <div>
-                    <h3 className="text-base font-bold text-white group-hover:text-gold-300 transition-colors mb-1.5">
+                    <h3 className="text-base font-bold text-white group-hover:text-sky-300 transition-colors mb-1.5">
                       {item.title}
                     </h3>
-                    <p className="text-xs text-slate-300 line-clamp-3 leading-relaxed opacity-90">
+                    <p className="text-xs text-slate-200 line-clamp-3 leading-relaxed opacity-90">
                       {item.desc}
                     </p>
                   </div>

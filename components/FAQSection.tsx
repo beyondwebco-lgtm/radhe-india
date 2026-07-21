@@ -27,10 +27,7 @@ export default function FAQSection() {
   );
 
   return (
-    <section id="faq" className="py-24 bg-navy-950 relative overflow-hidden">
-      {/* Background Decorative Element */}
-      <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-gold-500/5 rounded-full blur-[150px] pointer-events-none" />
-
+    <section id="faq" className="py-24 bg-white relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -40,9 +37,9 @@ export default function FAQSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-300 text-xs font-semibold uppercase tracking-wider mb-4"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-4"
           >
-            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+            <Sparkles className="w-3.5 h-3.5 text-blue-600" />
             <span>Got Questions?</span>
           </motion.div>
 
@@ -51,9 +48,9 @@ export default function FAQSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight"
           >
-            Frequently Asked <span className="text-gold-gradient">Questions</span>
+            Frequently Asked <span className="text-ocean-gradient">Questions</span>
           </motion.h2>
 
           <motion.p
@@ -61,7 +58,7 @@ export default function FAQSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed"
+            className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed"
           >
             Everything you need to know about our international export services, product manufacturing, and global trade compliance.
           </motion.p>
@@ -75,7 +72,7 @@ export default function FAQSection() {
             placeholder="Search FAQs (e.g., export, bulk, manpower, payment)..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-11 pr-4 py-3 rounded-xl bg-navy-900/90 border border-slate-700 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-gold-400 shadow-inner"
+            className="w-full pl-11 pr-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 shadow-inner"
           />
         </div>
 
@@ -92,8 +89,8 @@ export default function FAQSection() {
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
                 className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
                   isOpen
-                    ? "bg-navy-900/90 border-gold-500/50 shadow-xl"
-                    : "bg-navy-900/40 border-slate-800/80 hover:border-slate-700"
+                    ? "bg-slate-50 border-blue-300 shadow-md"
+                    : "bg-white border-slate-200 hover:border-slate-300"
                 }`}
               >
                 <button
@@ -101,13 +98,13 @@ export default function FAQSection() {
                   className="w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none"
                 >
                   <div className="flex items-center gap-3">
-                    <HelpCircle className={`w-5 h-5 shrink-0 ${isOpen ? "text-gold-400" : "text-slate-500"}`} />
-                    <span className="text-base font-bold text-white leading-snug">
+                    <HelpCircle className={`w-5 h-5 shrink-0 ${isOpen ? "text-blue-600" : "text-slate-400"}`} />
+                    <span className="text-base font-bold text-slate-900 leading-snug">
                       {faq.question}
                     </span>
                   </div>
-                  <div className={`p-2 rounded-lg bg-navy-950 border border-slate-800 transition-transform duration-300 shrink-0 ${
-                    isOpen ? "rotate-180 text-gold-400 border-gold-500/30" : "text-slate-400"
+                  <div className={`p-2 rounded-lg bg-slate-100 border border-slate-200 transition-transform duration-300 shrink-0 ${
+                    isOpen ? "rotate-180 text-blue-600 border-blue-200" : "text-slate-400"
                   }`}>
                     <ChevronDown className="w-4 h-4" />
                   </div>
@@ -121,11 +118,11 @@ export default function FAQSection() {
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="px-6 pb-6 pt-2 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 mt-1">
+                      <div className="px-6 pb-6 pt-2 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200 mt-1">
                         <p>{faq.answer}</p>
-                        <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
-                          <span>Category: <strong className="text-gold-300">{faq.category}</strong></span>
-                          <a href="#contact" className="text-gold-400 hover:text-gold-300 flex items-center gap-1 font-semibold">
+                        <div className="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
+                          <span>Category: <strong className="text-blue-700">{faq.category}</strong></span>
+                          <a href="#contact" className="text-blue-600 hover:text-blue-700 flex items-center gap-1 font-semibold">
                             <MessageSquare className="w-3.5 h-3.5" />
                             <span>Ask Custom Question</span>
                           </a>
@@ -140,8 +137,8 @@ export default function FAQSection() {
         </div>
 
         {filteredFaqs.length === 0 && (
-          <div className="text-center py-12 rounded-2xl bg-navy-900/60 border border-slate-800">
-            <p className="text-sm text-slate-400">No matching questions found for &ldquo;{searchQuery}&rdquo;.</p>
+          <div className="text-center py-12 rounded-2xl bg-slate-50 border border-slate-200">
+            <p className="text-sm text-slate-500">No matching questions found for &ldquo;{searchQuery}&rdquo;.</p>
           </div>
         )}
 
