@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { COMPANY_INFO } from "@/data/companyInfo";
 
 export default function Navbar() {
@@ -28,41 +28,17 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40">
-      {/* Top Quick Info Bar */}
-      <div className="bg-navy-950/95 border-b border-ocean-500/10 text-xs py-1.5 hidden md:block text-slate-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <div className="flex items-center gap-6">
-            <a href={`mailto:${COMPANY_INFO.email}`} className="flex items-center gap-1.5 hover:text-ocean-400 transition-colors">
-              <Mail className="w-3.5 h-3.5 text-ocean-400" />
-              <span>{COMPANY_INFO.email}</span>
-            </a>
-            <a href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, '')}`} className="flex items-center gap-1.5 hover:text-ocean-400 transition-colors">
-              <Phone className="w-3.5 h-3.5 text-ocean-400" />
-              <span>{COMPANY_INFO.phone}</span>
-            </a>
-            <a href={COMPANY_INFO.whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 transition-colors font-semibold">
-              <MessageCircle className="w-3.5 h-3.5" />
-              <span>WhatsApp: +91 9494321980</span>
-            </a>
-          </div>
-
-          <div className="text-ocean-400 font-medium text-[11px]">
-            Visakhapatnam, India • {COMPANY_INFO.tagline}
-          </div>
-        </div>
-      </div>
-
-      {/* Main Header */}
+      {/* Main Header Starts Directly (Top Info Bar Removed) */}
       <div className={`transition-all duration-300 ${
         isScrolled 
           ? "bg-navy-950/95 border-b border-ocean-500/20 shadow-lg py-2" 
-          : "bg-navy-950/85 border-b border-white/5 py-2.5"
+          : "bg-navy-950/90 border-b border-white/5 py-3"
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Zoomed Circular Logo + Typography */}
-          <Link href="/#hero" className="flex items-center gap-3 group shrink-0">
-            <div className="relative w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-white flex items-center justify-center border-2 border-ocean-500/50 shadow-lg ring-2 ring-ocean-400/20 group-hover:scale-105 transition-transform overflow-hidden">
+          {/* Enlarged Logo & Branding (+35% size) */}
+          <Link href="/#hero" className="flex items-center gap-3.5 group shrink-0">
+            <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-white flex items-center justify-center border-2 border-ocean-500/60 shadow-xl ring-4 ring-ocean-400/20 group-hover:scale-105 transition-transform overflow-hidden">
               <Image
                 src="/logo.png"
                 alt="Radhe India Enterprises Official Logo"
@@ -72,11 +48,11 @@ export default function Navbar() {
               />
             </div>
 
-            <div className="flex flex-col">
-              <span className="font-display font-bold text-base sm:text-lg text-white group-hover:text-ocean-300 transition-colors tracking-tight leading-tight">
+            <div className="flex flex-col justify-center">
+              <span className="font-display font-extrabold text-lg sm:text-xl md:text-2xl text-white group-hover:text-ocean-300 transition-colors tracking-tight leading-tight">
                 RADHE INDIA <span className="text-ocean-400">ENTERPRISES</span>
               </span>
-              <span className="text-[10px] text-slate-300 tracking-wider font-medium uppercase">
+              <span className="text-xs sm:text-xs text-ocean-300 tracking-wider font-bold uppercase mt-0.5">
                 {COMPANY_INFO.tagline}
               </span>
             </div>
@@ -88,7 +64,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-semibold text-slate-200 hover:text-ocean-400 transition-colors py-1"
+                className="text-base font-semibold text-slate-200 hover:text-ocean-400 transition-colors py-1"
               >
                 {link.name}
               </a>
@@ -98,7 +74,7 @@ export default function Navbar() {
           {/* Mobile Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-slate-300 hover:text-ocean-400 border border-slate-800"
+            className="lg:hidden p-2.5 rounded-xl text-slate-300 hover:text-ocean-400 border border-slate-800 bg-navy-900"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -115,7 +91,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 text-base font-semibold text-slate-200 hover:text-ocean-400 hover:bg-slate-900 rounded-lg transition-colors"
+                className="block px-4 py-2.5 text-base font-semibold text-slate-200 hover:text-ocean-400 hover:bg-slate-900 rounded-xl transition-colors"
               >
                 {link.name}
               </a>

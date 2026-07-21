@@ -1,10 +1,9 @@
-import Link from "next/link";
-import { Package, ArrowRight, ShieldCheck, MessageCircle } from "lucide-react";
+import { Package, ArrowRight, ShieldCheck } from "lucide-react";
 import { COMPANY_INFO } from "@/data/companyInfo";
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="relative pt-32 pb-12 sm:pt-36 sm:pb-16 flex items-center justify-center bg-navy-950 overflow-hidden gpu-accelerated">
+    <section id="hero" className="relative pt-36 pb-12 sm:pt-40 sm:pb-16 flex items-center justify-center bg-navy-950 overflow-hidden gpu-accelerated">
       
       {/* Background Cargo Ship & Global Trade Image */}
       <div 
@@ -36,31 +35,22 @@ export default function HeroSection() {
               Radhe India Enterprises specializes in E-Commerce, Import & Export, Custom Manufacturing, Electrical Manpower, and Supply Chain Management.
             </p>
 
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
+            {/* Simplified Hero CTA Buttons (Explore Products & Explore Services only) */}
+            <div className="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <a
                 href="#products"
-                className="btn-ocean w-full sm:w-auto px-7 py-3 text-xs sm:text-sm font-bold flex items-center justify-center gap-2"
+                className="btn-ocean w-full sm:w-auto px-8 py-3.5 text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-lg"
               >
                 <Package className="w-4 h-4" />
                 <span>Explore Products</span>
               </a>
 
-              <Link
-                href="/request-quote"
-                className="btn-outline-ocean w-full sm:w-auto px-7 py-3 text-xs sm:text-sm font-bold flex items-center justify-center gap-2 bg-navy-950/60"
-              >
-                <span>Request Quote</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-
               <a
-                href={COMPANY_INFO.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto px-6 py-3 text-xs sm:text-sm font-bold rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center gap-2 transition-colors"
+                href="#services"
+                className="btn-outline-ocean w-full sm:w-auto px-8 py-3.5 text-xs sm:text-sm font-bold flex items-center justify-center gap-2 bg-navy-950/70"
               >
-                <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp Quote</span>
+                <span>Explore Services</span>
+                <ArrowRight className="w-4 h-4" />
               </a>
             </div>
           </div>
