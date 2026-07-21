@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MessageCircle } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { COMPANY_INFO } from "@/data/companyInfo";
 
 export default function Footer() {
@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-6 border-b border-slate-800">
           
           {/* Zoomed Circular Logo + Brand Typography */}
-          <Link href="#hero" className="flex items-center gap-3 shrink-0 group">
+          <Link href="/#hero" className="flex items-center gap-3 shrink-0 group">
             <div className="relative w-12 h-12 rounded-full bg-white flex items-center justify-center border-2 border-ocean-500/50 shadow-lg ring-2 ring-ocean-400/20 group-hover:scale-105 transition-transform overflow-hidden">
               <Image
                 src="/logo.png"
@@ -30,7 +30,7 @@ export default function Footer() {
             </div>
           </Link>
 
-          {/* Contact Details & WhatsApp */}
+          {/* Direct Email & Phone Details (WhatsApp button removed from footer) */}
           <div className="flex flex-wrap items-center gap-6 text-slate-300">
             <a href={`mailto:${COMPANY_INFO.email}`} className="hover:text-ocean-400 transition-colors flex items-center gap-1.5">
               <Mail className="w-3.5 h-3.5 text-ocean-400" />
@@ -40,19 +40,15 @@ export default function Footer() {
               <Phone className="w-3.5 h-3.5 text-ocean-400" />
               <span>{COMPANY_INFO.phone}</span>
             </a>
-            <a href={COMPANY_INFO.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1.5 font-semibold">
-              <MessageCircle className="w-3.5 h-3.5" />
-              <span>WhatsApp: +91 9494321980</span>
-            </a>
           </div>
 
           {/* Quick Links */}
           <div className="flex flex-wrap gap-5 font-semibold text-slate-300">
-            <a href="#hero" className="hover:text-ocean-400 transition-colors">Home</a>
-            <a href="#about" className="hover:text-ocean-400 transition-colors">About</a>
-            <a href="#services" className="hover:text-ocean-400 transition-colors">Services</a>
-            <a href="#products" className="hover:text-ocean-400 transition-colors">Products</a>
-            <a href="#contact" className="hover:text-ocean-400 transition-colors">Contact</a>
+            <a href="/#hero" className="hover:text-ocean-400 transition-colors">Home</a>
+            <a href="/#about" className="hover:text-ocean-400 transition-colors">About</a>
+            <a href="/#services" className="hover:text-ocean-400 transition-colors">Services</a>
+            <a href="/#products" className="hover:text-ocean-400 transition-colors">Products</a>
+            <a href="/#contact" className="hover:text-ocean-400 transition-colors">Contact</a>
           </div>
         </div>
 
