@@ -28,17 +28,18 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40">
-      {/* Main Header Starts Directly (Top Info Bar Removed) */}
+      {/* Header Container */}
       <div className={`transition-all duration-300 ${
         isScrolled 
-          ? "bg-navy-950/95 border-b border-ocean-500/20 shadow-lg py-2" 
-          : "bg-navy-950/90 border-b border-white/5 py-3"
+          ? "bg-navy-950/95 border-b border-ocean-500/20 shadow-xl py-2.5" 
+          : "bg-navy-950/90 border-b border-white/5 py-3.5"
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Enlarged Logo & Branding (+35% size) */}
-          <Link href="/#hero" className="flex items-center gap-3.5 group shrink-0">
-            <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-white flex items-center justify-center border-2 border-ocean-500/60 shadow-xl ring-4 ring-ocean-400/20 group-hover:scale-105 transition-transform overflow-hidden">
+          {/* Prominent Header Branding (+45% Larger Logo & Typography) */}
+          <Link href="/#hero" className="flex items-center gap-4 group shrink-0">
+            {/* Enlarged Logo Container (+45%) */}
+            <div className="relative w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-white flex items-center justify-center border-2 border-ocean-500/60 shadow-2xl ring-4 ring-ocean-400/20 group-hover:scale-105 transition-transform overflow-hidden">
               <Image
                 src="/logo.png"
                 alt="Radhe India Enterprises Official Logo"
@@ -48,11 +49,12 @@ export default function Navbar() {
               />
             </div>
 
+            {/* Prominent Company Name & Tagline */}
             <div className="flex flex-col justify-center">
-              <span className="font-display font-extrabold text-lg sm:text-xl md:text-2xl text-white group-hover:text-ocean-300 transition-colors tracking-tight leading-tight">
+              <span className="font-display font-extrabold text-xl sm:text-2xl md:text-3xl text-white group-hover:text-ocean-300 transition-colors tracking-tight leading-tight">
                 RADHE INDIA <span className="text-ocean-400">ENTERPRISES</span>
               </span>
-              <span className="text-xs sm:text-xs text-ocean-300 tracking-wider font-bold uppercase mt-0.5">
+              <span className="text-xs sm:text-sm text-ocean-300 tracking-widest font-bold uppercase mt-0.5">
                 {COMPANY_INFO.tagline}
               </span>
             </div>
@@ -64,7 +66,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-base font-semibold text-slate-200 hover:text-ocean-400 transition-colors py-1"
+                className="text-base font-bold text-slate-200 hover:text-ocean-400 transition-colors py-1"
               >
                 {link.name}
               </a>
