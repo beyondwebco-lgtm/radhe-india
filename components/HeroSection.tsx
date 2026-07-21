@@ -3,7 +3,7 @@ import { COMPANY_INFO } from "@/data/companyInfo";
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="relative pt-36 pb-12 sm:pt-40 sm:pb-16 flex items-center justify-center bg-navy-950 overflow-hidden gpu-accelerated">
+    <section id="hero" className="relative pt-40 pb-12 sm:pt-48 sm:pb-16 flex items-center justify-center bg-navy-950 overflow-hidden gpu-accelerated">
       
       {/* Background Cargo Ship & Global Trade Image */}
       <div 
@@ -35,7 +35,7 @@ export default function HeroSection() {
               Radhe India Enterprises specializes in E-Commerce, Import & Export, Custom Manufacturing, Electrical Manpower, and Supply Chain Management.
             </p>
 
-            {/* Simplified Hero CTA Buttons (Explore Products & Explore Services only) */}
+            {/* Simplified Hero CTA Buttons */}
             <div className="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <a
                 href="#products"

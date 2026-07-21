@@ -9,11 +9,16 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contact Radhe India Enterprises on WhatsApp"
-      style={{ position: 'fixed' }}
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center shadow-2xl ring-4 ring-emerald-500/20 hover:scale-105 active:scale-95 transition-all duration-200"
+      style={{
+        position: "fixed",
+        right: "24px",
+        bottom: "24px",
+        zIndex: 9999,
+      }}
+      className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center shadow-2xl ring-4 ring-emerald-500/20 hover:scale-110 active:scale-95 transition-all duration-200"
     >
       <svg
-        className="w-8 h-8 fill-current"
+        className="w-7 h-7 sm:w-8 sm:h-8 fill-current"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
