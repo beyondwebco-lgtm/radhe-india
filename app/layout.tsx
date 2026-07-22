@@ -3,7 +3,7 @@ import { Plus_Jakarta_Sans, Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const sansFont = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -37,7 +37,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
-        <WhatsAppButton />
+        <FloatingWhatsApp />
       </body>
     </html>
   );
