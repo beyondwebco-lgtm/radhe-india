@@ -112,8 +112,15 @@ ${formData.message.trim()}`;
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span>{COMPANY_INFO.phone}</span>
+                  <MessageCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <a
+                    href={COMPANY_INFO.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline font-semibold"
+                  >
+                    Chat on WhatsApp
+                  </a>
                 </div>
               </div>
 
@@ -180,7 +187,7 @@ ${formData.message.trim()}`;
                     <label className="block text-[11px] font-semibold text-slate-700 mb-1">Phone / WhatsApp</label>
                     <input
                       type="tel"
-                      placeholder="+91 9494321980"
+                      placeholder="e.g. +91 99999 99999"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-3 py-2 text-xs rounded-xl bg-white border border-slate-300 text-slate-900 focus:outline-none focus:border-blue-600"

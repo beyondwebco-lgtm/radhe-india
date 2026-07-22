@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 import { COMPANY_INFO } from "@/data/companyInfo";
 
 export default function Footer() {
@@ -36,9 +36,9 @@ export default function Footer() {
               <Mail className="w-3.5 h-3.5 text-blue-600" />
               <span>{COMPANY_INFO.email}</span>
             </a>
-            <a href={`tel:${COMPANY_INFO.phone.replace(/\s+/g, '')}`} className="hover:text-blue-600 transition-colors flex items-center gap-1.5">
-              <Phone className="w-3.5 h-3.5 text-blue-600" />
-              <span>{COMPANY_INFO.phone}</span>
+            <a href={COMPANY_INFO.whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors flex items-center gap-1.5 font-semibold">
+              <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
+              <span>Chat on WhatsApp</span>
             </a>
           </div>
 

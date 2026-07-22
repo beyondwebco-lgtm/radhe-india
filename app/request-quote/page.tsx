@@ -166,7 +166,7 @@ Sent from the Radhe India Enterprises website.`;
               </label>
               <input
                 type="tel"
-                placeholder="+91 9494321980"
+                placeholder="e.g. +91 99999 99999"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-900 focus:outline-none focus:border-blue-600"

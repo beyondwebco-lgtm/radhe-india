@@ -5,11 +5,11 @@ import { COMPANY_INFO } from "@/data/companyInfo";
 
 export default function AboutSection() {
   const activities = [
-    "1. E-Commerce",
-    "2. Import & Export",
-    "3. Manufacturing",
-    "4. Global Sourcing",
-    "5. Industrial Supply",
+    "E-Commerce",
+    "Import & Export",
+    "Manufacturing",
+    "Global Sourcing",
+    "Industrial Supply",
   ];
 
   return (
