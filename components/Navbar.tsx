@@ -37,10 +37,10 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
           {/* Header Branding */}
-          <Link href="/#hero" className="flex items-center gap-3.5 sm:gap-4 group shrink-0">
+          <Link href="/#hero" className="flex items-center gap-2 sm:gap-4 group shrink-0">
             
             {/* Logo Badge */}
-            <div className="relative w-14 h-14 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-full bg-white flex items-center justify-center border-2 border-blue-600/60 shadow-lg ring-4 ring-blue-500/20 group-hover:scale-105 transition-transform overflow-hidden shrink-0">
+            <div className="relative w-11 h-11 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-white flex items-center justify-center border-2 border-blue-600/60 shadow-lg ring-4 ring-blue-500/20 group-hover:scale-105 transition-transform overflow-hidden shrink-0">
               <Image
                 src="/logo.png"
                 alt="Radhe India Enterprises Official Logo"
@@ -52,10 +52,10 @@ export default function Navbar() {
 
             {/* Company Name & Tagline */}
             <div className="flex flex-col justify-center">
-              <span className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[42px] text-slate-900 group-hover:text-blue-600 transition-colors tracking-tight leading-none">
+              <span className="font-display font-extrabold text-base min-[360px]:text-lg sm:text-3xl md:text-4xl lg:text-[42px] text-slate-900 group-hover:text-blue-600 transition-colors tracking-tight leading-none">
                 RADHE INDIA <span className="text-blue-600">ENTERPRISES</span>
               </span>
-              <span className="text-xs sm:text-sm md:text-base lg:text-[18px] text-sky-600 tracking-widest font-bold uppercase mt-1 sm:mt-1.5 leading-none">
+              <span className="text-[8px] min-[360px]:text-[10px] sm:text-sm md:text-base lg:text-[18px] text-sky-600 tracking-wider sm:tracking-widest font-bold uppercase mt-1 sm:mt-1.5 leading-none">
                 {COMPANY_INFO.tagline}
               </span>
             </div>
